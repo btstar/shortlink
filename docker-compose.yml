@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  redis:
+    image: redis:4
+    restart: always
+    command: redis-server --requirepass 123456 --appendonly yes
+#    ports:
+#      - "6379:6379"
+    volumes:
+      - ./data:/data
+
+  shortlink:
+    image: fonzie96/shortlink
+    restart: always
+    command:
+      - -config
+      - config/config-example.yaml
+    ports:
+      - "8081:8081"

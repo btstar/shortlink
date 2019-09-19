@@ -80,7 +80,9 @@ func Setup(configMethod string) {
 }
 
 func loggingInit() {
-
+	logging.SetFormatter(&logging.TextFormatter{
+		DisableColors: true,
+	})
 }
 
 // json方式的配置文件

@@ -4,7 +4,7 @@
 
 短链接服务,项目使用GOlang编写,使用原生的```net/http```作为Web服务器,由于默认的```net/http```对于路由支持的不是很好，所以这里选择了使用
 [mux](github.com/gorilla/mux)作为路由，配合[alice](github.com/justinas/alice)完成中间件工作.整个项目主要的接口有通过短链接获取长链
-接，通过长链接获取短链接,最后一个就是Redirect 默认302,相对短链接进行访问基数.
+接，通过长链接获取短链接,最后一个就是Redirect 默认302,相对短链接进行访问计数.
 
 ----
 
@@ -87,4 +87,16 @@ go run main.go
 INFO[0001] Start initializing the service configuration....
 INFO[0001] Server configuration initialized successfully....
 INFO[0001] The http server starts and listens on http://0.0.0.0:8081
+```
+
+### docker 运行
+
+```
+git clone https://github.com/fonzie1006/shortlink.git
+cd shortlink
+```
+
+需要预先安装docker-compose 和 docker
+```
+docker-compose up -d
 ```
